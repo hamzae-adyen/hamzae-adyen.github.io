@@ -1,0 +1,218 @@
+
+<!-- saved from url=(0054)http://diff.hamzae.ext.eu.adyen.sandbox:5432/diff.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body><h3 id="new-endpoints-1">New Endpoints: 1</h3>
+<hr>
+<p>GET /transaction</p>
+<h3 id="deleted-endpoints-none">Deleted Endpoints: None</h3>
+<hr>
+<h3 id="modified-endpoints-2">Modified Endpoints: 2</h3>
+<hr>
+<p>GET /transactions</p>
+<ul>
+<li>New query param: paymentInstrumentId</li>
+<li>New header param: X-Request-v4-ID</li>
+<li>New cookie param: csrftoken-v4</li>
+<li>Deleted query param: balancePlatform</li>
+<li>Deleted header param: X-Request-v3-ID</li>
+<li>Deleted cookie param: csrftoken-v3</li>
+<li>Modified query param: accountHolderId
+<ul>
+<li>Required changed from false to true</li>
+</ul>
+</li>
+<li>Modified query param: createdSince
+<ul>
+<li>Description changed from 'Only include transactions that have been created on or after this point in time. The value must be in ISO 8601 format. For example, <strong>2021-05-30T15:07:40Z</strong>.' to 'Only include transactions that have been created after this point in time. The value must be in ISO 8601 format. For example, <strong>2021-05-30T15:07:40Z</strong>.'</li>
+</ul>
+</li>
+<li>Modified header param: X-Content-ID
+<ul>
+<li>Required changed from true to false</li>
+</ul>
+</li>
+<li>Modified cookie param: jwtToken
+<ul>
+<li>Required changed from false to true</li>
+</ul>
+</li>
+<li>Responses changed
+<ul>
+<li>Modified response: 200
+<ul>
+<li>Content changed
+<ul>
+<li>Modified media type: application/json
+<ul>
+<li>Schema changed
+<ul>
+<li>Properties changed
+<ul>
+<li>Modified property: data
+<ul>
+<li>Items changed
+<ul>
+<li>Required changed
+<ul>
+<li>New required property: accountHolder</li>
+<li>New required property: balanceAccount</li>
+<li>Deleted required property: accountHolderId</li>
+<li>Deleted required property: balanceAccountId</li>
+<li>Deleted required property: counterparty</li>
+<li>Deleted required property: createdAt</li>
+<li>Deleted required property: reference</li>
+</ul>
+</li>
+<li>Properties changed
+<ul>
+<li>New property: accountHolder</li>
+<li>New property: balanceAccount</li>
+<li>New property: paymentInstrument</li>
+<li>New property: transfer</li>
+<li>Deleted property: accountHolderId</li>
+<li>Deleted property: balanceAccountId</li>
+<li>Deleted property: category</li>
+<li>Deleted property: counterparty</li>
+<li>Deleted property: createdAt</li>
+<li>Deleted property: eventId</li>
+<li>Deleted property: instructedAmount</li>
+<li>Deleted property: paymentInstrumentId</li>
+<li>Deleted property: reference</li>
+<li>Deleted property: transferId</li>
+<li>Deleted property: type</li>
+<li>Modified property: amount
+<ul>
+<li>Required changed
+<ul>
+<li>Deleted required property: currency</li>
+</ul>
+</li>
+<li>Properties changed
+<ul>
+<li>New property: rate</li>
+<li>Deleted property: country</li>
+<li>Modified property: currency
+<ul>
+<li>MinLength changed from 3 to 4</li>
+</ul>
+</li>
+<li>Modified property: enum
+<ul>
+<li>New enum values: [forexMarkup]</li>
+<li>Deleted enum values: [authHoldReserve]</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Examples changed
+<ul>
+<li>Modified example: success
+<ul>
+<li>Value changed from map[_links:map[next:map[href:https://balanceplatform-api-test.adyen.com/btl/v2/transactions?balancePlatform=Bastronaut&amp;createdUntil=2022-03-21T00%3A00%3A00Z&amp;createdSince=2022-03-11T00%3A00%3A00Z&amp;limit=3&amp;cursor=S2B-TSAjOkIrYlIlbjdqe0RreHRyM32lKRSxubXBHRkhHL2E32XitQQz5SfzpucD5HbHwpM1p6NDR1eXVQLFF6MmY33J32sobDxQYT90MHIud1hwLnd6JitcX32xJ]] data:map[amount:map[currency:EUR value:-9] balanceAccountId:BAB8B2C3D4E5F6G7H8D9J6GD4 balancePlatform:YOUR_BALANCE_PLATFORM bookingDate:2022-03-11T11:21:24+01:00 category:internal counterparty:map[balanceAccountId:BA00000000000000000000001] createdAt:2022-03-11T11:21:24+01:00 id:1VVF0D5U66PIUIVP instructedAmount:map[currency:EUR value:-9] reference:REFERENCE_46e8c40e status:booked transferId:1VVF0D5U66PIUIVP type:fee valueDate:2022-03-11T11:21:24+01:00]] to map[_links:map[next:map[href:https://balanceplatform-api-test.adyen.com/btl/v2/transactions?balancePlatform=Bastronaut&amp;createdUntil=2022-03-21T00%3A00%3A00Z&amp;createdSince=2022-03-11T00%3A00%3A00Z&amp;limit=3&amp;cursor=S2B-TSAjOkIrYlIlbjdqe0RreHRyM32lKRSxubXBHRkhHL2E32XitQQz5SfzpucD5HbHwpM1p6NDR1eXVQLFF6MmY33J32sobDxQYT90MHIud1hwLnd6JitcX32xJ]] data:map[amount:map[currency:EUR rate:5 value:-9] balanceAccountId:BAB8B2C3D4E5F6G7H8D9J6GD4 balancePlatform:YOUR_BALANCE_PLATFORM bookingDate:2022-03-11T11:21:24+01:00 category:internal counterparty:map[balanceAccountId:BA00000000000000000000001] createdAt:2022-03-11T11:21:24+01:00 id:1VVF0D5U66PIUIVP instructedAmount:map[currency:EUR value:-9] reference:REFERENCE_46e8c40e status:booked transferId:1VVF0D5U66PIUIVP type:fee valueDate:2022-03-11T11:21:24+01:00]]</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>POST /transfers/{transferId}/returns</p>
+<ul>
+<li>Request body changed
+<ul>
+<li>Content changed
+<ul>
+<li>Modified media type: application/json
+<ul>
+<li>Schema changed
+<ul>
+<li>Properties changed
+<ul>
+<li>Modified property: amount
+<ul>
+<li>Required changed
+<ul>
+<li>Deleted required property: currency</li>
+</ul>
+</li>
+<li>Properties changed
+<ul>
+<li>New property: rate</li>
+<li>Deleted property: country</li>
+<li>Modified property: currency
+<ul>
+<li>MinLength changed from 3 to 4</li>
+</ul>
+</li>
+<li>Modified property: enum
+<ul>
+<li>New enum values: [forexMarkup]</li>
+<li>Deleted enum values: [authHoldReserve]</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Examples changed
+<ul>
+<li>New example: transfers-return</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Responses changed
+<ul>
+<li>New response: 430</li>
+<li>Modified response: 200
+<ul>
+<li>Content changed
+<ul>
+<li>Modified media type: application/json
+<ul>
+<li>Examples changed
+<ul>
+<li>New example: transfers-return</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Servers changed</p>
+<ul>
+<li>New server: <a href="https://balanceplatform-api-test.adyen.com/btl/v4">https://balanceplatform-api-test.adyen.com/btl/v4</a></li>
+<li>Deleted server: <a href="https://balanceplatform-api-test.adyen.com/btl/v3">https://balanceplatform-api-test.adyen.com/btl/v3</a></li>
+</ul>
+
+</body></html>
